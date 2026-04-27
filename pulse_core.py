@@ -3,6 +3,7 @@ import pandas as pd
 import gspread
 from google.oauth2.service_account import Credentials
 import traceback
+from receipt_engine import generate_receipt_image
 
 st.set_page_config(page_title="HassleFree Pulse", page_icon="📈", layout="wide")
 st.title("📈 HassleFree Pulse: Live Operations")
@@ -70,7 +71,7 @@ try:
 
     # --- Data Views ---
     # --- Data Views ---
-    tab1, tab2, tab3, tab4 = st.tabs(["📊 Sales Ledger", "💸 Expense Ledger", "🚨 Action Required", "🏆 Customer Loyalty"])
+    tab1, tab2, tab3, tab4, tab5 = st.tabs(["📊 Sales", "💸 Expenses", "🚨 Pending", "🏆 Loyalty", "🖨️ Receipt Generator"])
     with tab1:
         st.subheader("Recent Sales Transactions")
         st.dataframe(df_sales)
@@ -133,7 +134,56 @@ try:
         else:
             # Show the whole leaderboard
             st.dataframe(customer_counts, use_container_width=True)
+
+        with tab5:
+            st.subheader("🖨️ Generate Image Receipts")
+        st.write("Select a 'PAID' order to instantly generate a shareable PNG receipt.")
+        
+        # Filter for only PAID orders
+        paid_orders = df_sales[df_sales['STATUS'].str.upper() == 'PAID']
+        
+        if not paid_orders.empty:
+            # Create a dropdown for the user to select an order
+            # We format it to show: "Order ID - Student Name (Rs. Amount)"
+            order_options = paid_orders.apply(
+                lambda row: f"Order #{row['ORDER ID']} - {row['STUDENT NAME/Description']} (Rs. {row['TOTAL AMOUNT']})", 
+                axis=1
+            ).tolist()
             
+            selected_order_str = st.selectbox("Select an Order:", order_options)
+            
+            if st.button("Generate Digital Receipt"):
+                # Extract the selected Order ID from the string (e.g., gets "66" from "Order #66 - Ahsan...")
+                selected_id = selected_order_str.split(" - ")[0].replace("Order #", "")
+                
+                # Find the exact row in the dataframe
+                order_row = paid_orders[paid_orders['ORDER ID'].astype(str) == selected_id].iloc[0]
+                
+                # Generate the image!
+                file_path = generate_receipt_image(
+                    order_id=order_row['ORDER ID'],
+                    student_name=order_row['STUDENT NAME/Description'],
+                    program=order_row['Program'],
+                    amount=order_row['TOTAL AMOUNT'],
+                    date_str=order_row['Date'],
+                    partner_id=order_row['Sold By']
+                )
+                
+                st.success(f"Receipt generated successfully!")
+                
+                # Show the image directly in the dashboard
+                st.image(file_path, caption=f"Receipt for {order_row['STUDENT NAME/Description']}")
+                
+                # Add a download button so you can save it and send via WhatsApp
+                with open(file_path, "rb") as file:
+                    st.download_button(
+                        label="Download PNG for WhatsApp",
+                        data=file,
+                        file_name=file_path.split("/")[-1],
+                        mime="image/png"
+                    )
+        else:
+            st.info("No paid orders available to generate receipts for.")
 except Exception as e:
     st.error("❌ Connection Failed! Check your terminal.")
     print("\n--- ERROR LOG ---")
