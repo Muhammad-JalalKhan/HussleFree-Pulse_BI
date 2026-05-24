@@ -3,4 +3,9 @@ streamlit
 gspread
 google-auth
 google-auth-oauthlib
-google-auth-httplib2
+Pillow
+plotly
+scikit-learn
+prophet
+joblib
+scikit-learn==1.6.1
