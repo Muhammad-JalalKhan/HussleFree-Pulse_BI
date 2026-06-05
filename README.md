@@ -18,8 +18,6 @@ Managed by business partners Muazzam, Ali, and Muhammad Jalal, our printing ente
 
 Our platform eliminates these issues by transforming raw transaction logs into dynamic, real-time corporate intelligence.
 
-<img width="788" height="1002" alt="image" src="https://github.com/user-attachments/assets/77d2b063-e327-4302-93c4-6cd2d0d47ee3" />
-
 ---
 
 ## 🖥️ Operational User Interface & Core Features
