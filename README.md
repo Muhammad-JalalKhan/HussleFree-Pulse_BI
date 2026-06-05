@@ -25,21 +25,14 @@ Our platform eliminates these issues by transforming raw transaction logs into d
 The system features a structured point-of-sale layout that captures specific student details alongside essential variables: `Order ID/Invoice No`, `Program`, `Student Status` (Hostellite vs. Day Scholar), `Pages Qty`, `Total Amount`, `Due Date`, and `Amount Received`. 
 
 Upon submission, the system formats dates into standard templates, appends the entry to the remote spreadsheet, and applies an automated styling layout (**Font size 12, Centered alignment**) to maintain perfect ledger consistency.
+<img width="1923" height="554" alt="image" src="https://github.com/user-attachments/assets/3e17c8b3-b9f2-4871-9d9e-01e2d4020341" />
 
-> 🖼️ **[PLACE YOUR POS INTERFACE SCREENSHOT HERE]**
-> *Instructions: Edit this file on GitHub and drag-and-drop your image of the "Point of Sale" form here.*
-
----
 
 ### 2. Live Operational Ledger Dashboard
 The central dashboard displays metrics pulled directly from our cloud connection layer.
 * **Financial Metrics:** Displays live aggregates for `Total Lifetime Revenue`, `Total Lifetime Orders`, and an isolated `Pending Dues` tracker that highlights outstanding debt values.
 * **Interactive Data Grid:** Features a sortable table showing recent transactions, complete with a `Force Cloud Sync` routine to instantly bypass caching and refresh data.
 
-> 🖼️ **[PLACE YOUR LIVE BUSINESS LEDGER SCREENSHOT HERE]**
-> *Instructions: Edit this file on GitHub and drag-and-drop your image of the "Live Operations Ledger" dashboard here.*
-
----
 
 ## 🧠 Model A: The Logistics & Supply Forecaster
 
@@ -69,8 +62,8 @@ Let's translate that math into clear printing terms:
 * **$h(t)$ (Holidays/Exams):** Specific calendar events that cause abnormal data swings (e.g., exam week or university holidays).
 * **$\epsilon_t$ (Random Error):** Unexpected daily fluctuations that no model can predict (e.g., unexpected severe weather keeping students inside).
 
-> 🖼️ **[PLACE YOUR DEMAND FORECASTER CHART SCREENSHOT HERE]**
-> *Instructions: Edit this file on GitHub and drag-and-drop your image of the 14-Day Supply & Demand Outlook plot here.*
+<img width="1864" height="522" alt="image" src="https://github.com/user-attachments/assets/2ad16c4a-ba61-476a-9b64-d7bd96406a64" />
+
 
 **🚨 Operational Rule:** If the combined math predicts that our 14-day trailing print volume will exceed **1,500 pages**, the dashboard flashes a red warning so we can purchase toner and paper *before* our shelves go empty.
 
@@ -120,9 +113,8 @@ Standard AI models wait until they are 50% or 60% confident before sounding an a
 ## 👔 The Business Intelligence (BI) Translation Layer
 
 To bridge the gap between machine learning math and daily operations, we programmed an automated interpreter layer over our AI models. It monitors student metrics and translates complex probability outputs into plain-English directions:
+<img width="868" height="648" alt="image" src="https://github.com/user-attachments/assets/1bad6ca8-0ad0-461a-a3a8-e52192dfcedf" />
 
-> 🖼️ **[PLACE YOUR CHURN PREVENTION LIST SCREENSHOT HERE]**
-> *Instructions: Edit this file on GitHub and drag-and-drop your image of the "Real-Time Student Churn Scanner" table here.*
 
 | Mathematical Trigger Status | Generated Dashboard Label | Strategic Corporate Action |
 | :--- | :--- | :--- |
