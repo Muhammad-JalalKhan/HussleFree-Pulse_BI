@@ -8,6 +8,7 @@ This document breaks down how the system functions, the user interface, and the 
 
 ---
 
+
 ## 💡 The Business Core: What Problems Are We Solving?
 
 Managed by business partners Muazzam, Ali, and Muhammad Jalal, our printing enterprise faced three major operational hurdles as it scaled:
@@ -17,6 +18,8 @@ Managed by business partners Muazzam, Ali, and Muhammad Jalal, our printing ente
 
 Our platform eliminates these issues by transforming raw transaction logs into dynamic, real-time corporate intelligence.
 
+<img width="788" height="1002" alt="image" src="https://github.com/user-attachments/assets/77d2b063-e327-4302-93c4-6cd2d0d47ee3" />
+
 ---
 
 ## 🖥️ Operational User Interface & Core Features
@@ -25,6 +28,7 @@ Our platform eliminates these issues by transforming raw transaction logs into d
 The system features a structured point-of-sale layout that captures specific student details alongside essential variables: `Order ID/Invoice No`, `Program`, `Student Status` (Hostellite vs. Day Scholar), `Pages Qty`, `Total Amount`, `Due Date`, and `Amount Received`. 
 
 Upon submission, the system formats dates into standard templates, appends the entry to the remote spreadsheet, and applies an automated styling layout (**Font size 12, Centered alignment**) to maintain perfect ledger consistency.
+
 <img width="1923" height="554" alt="image" src="https://github.com/user-attachments/assets/3e17c8b3-b9f2-4871-9d9e-01e2d4020341" />
 
 
@@ -113,6 +117,7 @@ Standard AI models wait until they are 50% or 60% confident before sounding an a
 ## 👔 The Business Intelligence (BI) Translation Layer
 
 To bridge the gap between machine learning math and daily operations, we programmed an automated interpreter layer over our AI models. It monitors student metrics and translates complex probability outputs into plain-English directions:
+
 <img width="868" height="648" alt="image" src="https://github.com/user-attachments/assets/1bad6ca8-0ad0-461a-a3a8-e52192dfcedf" />
 
 
